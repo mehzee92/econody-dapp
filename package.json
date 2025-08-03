@@ -14,9 +14,9 @@
     "outputPath": "dist"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "PORT=3000 next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "PORT=3000 next start",
     "lint": "next lint"
   },
   "dependencies": {
