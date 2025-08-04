@@ -1,5 +1,5 @@
 
-export const apiUrl =    "http://31.97.150.58:8000";
+export const apiUrl =  "http://31.97.150.58:8000"; //"http://localhost:8000"; //
 
 export const toPeriod=(totalSeconds)=> {
   const days = Math.floor(totalSeconds / (24 * 3600)); // 1 day = 86400 seconds
@@ -309,12 +309,9 @@ export const checkToken=async()=> {
 }
 
 
-
-
-
 export const getData=async(url, bypasstoken=false)=> 
 {
-  
+
   let accessToken = "";
   if(!bypasstoken) 
   {
@@ -324,6 +321,7 @@ export const getData=async(url, bypasstoken=false)=>
     }
     accessToken = result.accessToken;
   }
+  
   try {
     const response = await fetch(apiUrl+url, {
       method: 'GET',

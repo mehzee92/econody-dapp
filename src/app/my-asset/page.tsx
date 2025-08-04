@@ -59,7 +59,7 @@ export default function AssetsCards()
 
 
 		{/* Filter Cards Row & Search Bar (Marketplace style) */}
-		<div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-8">
+		{/* <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-8">
 			<div className="flex max-w-[1200px] gap-3 w-full">
 				<div className="flex items-center max-w-4xl flex-1 border w-full border-gray-300 rounded-full px-4 py-2 bg-white shadow-sm">
 					<svg
@@ -82,8 +82,7 @@ export default function AssetsCards()
 				<button className="rounded-full bg-gray-800 text-white px-5 py-2">Search</button>
 			</div>
 
-		</div>
-
+		</div> */}
 
 
 

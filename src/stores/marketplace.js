@@ -9,7 +9,8 @@ const useMarketplaceStore = create((set) => ({
     set({ isLoading: true, error: null });
     try {
       const result = await getData('/api/marketplace?'+query, true);
-      set({ assets:result, isLoading: false });
+      console.log(result);
+      set({assets:result.data, isLoading: false });
     } catch (err) {
       set({ error: err.message, isLoading: false });
     }

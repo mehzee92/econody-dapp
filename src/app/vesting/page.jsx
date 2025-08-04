@@ -2,58 +2,33 @@
 import PageHeader from "@/components/globalComponents/PageHeading";
 import React, { useEffect } from "react";
 import {page} from "@/components/cls";
-import FilterDropdown from "@/components/globalComponents/FilterDropdown";
-import { Star, FlaskConical, Users, Flag, Wand2 } from "lucide-react";
-
-interface Asset {
-  asset: string;
-  date: string;
-  total: number;
-  unlocked: string;
-  availableToClaim: string;
-  claimed: number;
-}
-
-const assetData: Asset[] = [
-  {
-    asset: "GoldCoin",
-    date: "2025.01.01",
-    total: 1000,
-    unlocked: "26%",
-    availableToClaim: "26 000",
-    claimed: 0,
-  },
-  {
-    asset: "GoldCoin",
-    date: "2025.01.01",
-    total: 1000,
-    unlocked: "26%",
-    availableToClaim: "26 000",
-    claimed: 0,
-  },
-  {
-    asset: "GoldCoin",
-    date: "2025.01.01",
-    total: 1000,
-    unlocked: "26%",
-    availableToClaim: "26 000",
-    claimed: 0,
-  },
-];
+import useVestingsStore from "@/stores/vestingStore";
 
 
 
 export default function CliffPage() {
 
-  const[vestings, setVestings] = useState();
 
-  const handleClaim = (item: Asset) => {
+  const { vestings, fetchVestings  }  = useVestingsStore();
+
+  useEffect(() => { 
+    if(vestings.length==0) {
+       fetchVestings();  
+    }
+  }, []);  
+
+
+
+  const handleClaim = (item) => {
     alert(`Claimed for ${item.asset}!`);
   };
 
-  const handleCliffInfo = (item: Asset) => {
+  const handleCliffInfo = (item) => {
     alert(`Cliff information for ${item.asset}`);
   };
+
+
+
 
   return (
     <div className={page}>
@@ -67,48 +42,14 @@ export default function CliffPage() {
           imageHeight={150}
           imageWidth={150}
         />
-        {/* Filter Cards Row */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-8">
-          <div className="flex max-w-[1200px] flex-col md:flex-row gap-3 w-full">
-            <FilterDropdown
-              options={filterCategories}
-              value={activeFilter}
-              onChange={setActiveFilter}
-            />
-            <div className="flex gap-2 w-full max-w-4xl">
-              <div className="flex items-center flex-1 border border-gray-300 rounded-full px-4 py-2 bg-white shadow-sm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-gray-500 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M16.65 17.65A7.5 7.5 0 1118 10.5a7.5 7.5 0 01-1.35 7.15z" />
-                </svg>
-                <input
-                  type="text"
-                  placeholder="Search assets"
-                  className="outline-none text-sm text-gray-700 w-full placeholder-gray-700"
-                  value={search}
-                  onChange={e => setSearch(e.target.value)}
-                />
-              </div>
-              <button className="rounded-full bg-gray-800 text-white px-5 py-2">Search</button>
-            </div>
-          </div>
-        </div>
-        {/* Asset Count & Sorting */}
-        <div className="flex items-center justify-between mt-4">
-          <span className="text-lg font-semibold text-gray-800">{filteredAssets.length} Vesting Assets</span>
-        </div>
       </div>
       {/* Asset List */}
       <div className="w-full mt-4 flex flex-col divide-y divide-gray-200 bg-white">
-        {filteredAssets.length === 0 && (
+        {vestings.length === 0 && (
           <div className="text-center text-gray-400 py-10">No vesting assets found.</div>
         )}
-        {filteredAssets.map((item: Asset, i: number) => (
+
+        {Array.isArray(vestings) && vestings.map((item, i) => (
           <div key={i} className="flex flex-col sm:flex-row items-center py-5 gap-4">
             {/* Thumbnail */}
             <div className="flex-shrink-0">

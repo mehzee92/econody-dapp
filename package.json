@@ -14,9 +14,9 @@
     "outputPath": "dist"
   },
   "scripts": {
-    "dev": "PORT=3000 next dev",
+    "dev": "cross-env PORT=3000 next dev",
     "build": "next build",
-    "start": "PORT=3000 next start",
+    "start": "cross-env PORT=3000 next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -33,6 +33,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "tailwindcss": "^4",
