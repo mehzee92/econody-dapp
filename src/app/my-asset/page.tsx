@@ -15,7 +15,7 @@ export default function AssetsCards()
 	const router = useRouter();
 	const [showModal, setShowModal] = useState(false);
 	const cardsRowRef = useRef<HTMLDivElement>(null);
-	const [search, setSearch] = useState("");
+	// const [search, setSearch] = useState("");
 
 	const { assets, error, fetchAssets } = useMyAssetsStore();
 

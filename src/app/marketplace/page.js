@@ -6,7 +6,7 @@ import PageHeader from "@/components/globalComponents/PageHeading";
 import FilterDropdown from "@/components/globalComponents/FilterDropdown";
 import { page } from "@/components/cls";
 import { apiUrl } from "@/components/utils";
-import Dropdown from "@/components/Dropdown";
+// import Dropdown from "@/components/Dropdown";
 
 import useMarketplaceStore from "@/stores/marketplace"
 

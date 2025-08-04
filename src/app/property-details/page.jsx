@@ -276,7 +276,7 @@ function PropertyDetailsContent() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    {offers.map((offer, index) => (
+                                    {Array.isArray(offers) && offers.map((offer, index) => (
                                         <div key={index} className="rounded-2xl w-full py-2 font-medium bg-gray-100 border border-gray-200 hover:border-gray-300 transition-colors px-2">
                                             {/* Desktop Layout */}
                                             <div className="hidden md:grid grid-cols-5 items-center">
