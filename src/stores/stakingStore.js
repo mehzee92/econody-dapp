@@ -10,7 +10,6 @@ const useVestingsStore = create((set) => ({
     set({ isLoading: true, error: null });
     try {
       const result = await getData('/api/my-stakes', true);
-      alert(JSON.stringify());
       if (!Array.isArray(result.data)) throw new Error('Invalid response format');
       set({ stakes: result.data, isLoading: false });
     } catch (err) {

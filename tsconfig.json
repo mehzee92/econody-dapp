@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/vesting/page.jsx", "src/app/staking/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/vesting/page.jsx", "src/app/staking/page.jsx", "src/app/property-details/page.jsx"],
   "exclude": ["node_modules"]
 }
