@@ -15,10 +15,10 @@ import MyHolding from "./MyHolding";
 function PropertyDetailsContent() {
 
     const { detail, offers, fetchAssetDetail } = useAssetDetailStore();
-
+    let asset_id;
 
     useEffect(()=>{
-        const asset_id = getQueryParam("asset_id");
+        asset_id = getQueryParam("asset_id");
         fetchAssetDetail(asset_id);
     }, []);
 
@@ -56,9 +56,7 @@ function PropertyDetailsContent() {
 
                         <H1 title="Asset Gallery" />
 
-
-                        <Scroller asset_id={detail.id} />
-
+                        { detail && detail.id ? <Scroller asset_id={detail.id} /> : null } 
 
                         <H1 title="Asset Address / Location" />
 
@@ -78,13 +76,7 @@ function PropertyDetailsContent() {
 
 
 
-
-                   
-                   
-                    
-
                     <div className="w-full lg:w-[70%] space-y-4">
-
 
                         <h1 className="text-xl hidden mt-4 lg:block md:text-3xl font-bold text-gray-900">
                             <img 
@@ -252,13 +244,10 @@ function PropertyDetailsContent() {
                         </div>
 
 
-                        {/* Additional Stats */}
-
-
- 
-
-                    <MyHolding token_symbol={detail.token_symbol} asset_id={detail.id} />
-
+                        {
+                            detail && detail.id ? <MyHolding token_symbol={detail.token_symbol} asset_id={detail.id} /> : null 
+                        }
+                
 
                         {/* Token Offers Table */}
                         <div className="border border-gray-200 shadow-sm rounded-2xl p-4">
