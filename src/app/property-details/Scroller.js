@@ -13,7 +13,7 @@ const Slider = ({asset_id}) => {
   useEffect(()=>{
     
     const fetchImages=async()=>{
-        const result = await getData(apiUrl+"/api/gallery/asset/"+asset_id, true);
+        const result = await getData("/api/gallery/asset/"+asset_id, true);
         setImages(result);      
     }
 

@@ -15,9 +15,9 @@ export default function AssetsCards()
 	const router = useRouter();
 	const [showModal, setShowModal] = useState(false);
 	const cardsRowRef = useRef<HTMLDivElement>(null);
-	// const [search, setSearch] = useState("");
-
+	// const[search, setSearch] = useState("");
 	const { assets, error, fetchAssets } = useMyAssetsStore();
+
 
 	useEffect(()=>{
 		if(assets.length==0) {
@@ -25,13 +25,12 @@ export default function AssetsCards()
 		}
 	}, [])
 	
+
 	const assetDetails = {
 		name: "GoldCoin",
 		balance: 1000,
 		price: "$12.00",
 	};
-
-
 
 	// Carousel scroll handlers for cards row
 	const scrollCardsRow = (dir: "left" | "right") => {
@@ -44,8 +43,8 @@ export default function AssetsCards()
 		}
 	};
 
-	return (<div className={page}>
 
+	return (<div className={page}>
 		<PageHeader
 			title="Assets"
 			description="Manage, track, and grow your digital and real-world asset portfolio. Browse your holdings, view performance, and take action on your investments in one place."

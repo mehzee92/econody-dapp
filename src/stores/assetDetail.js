@@ -37,8 +37,6 @@ const useAssetDetailStore = create((set) => ({
   error: null,
 
 
-
-
   fetchAssetDetail: async (id) => {
 
     set({ isLoading: true, error: null });
@@ -61,7 +59,6 @@ const useAssetDetailStore = create((set) => ({
       if (!result || typeof result !== 'object') {
         alert("Get : Failed to fetch data")
       }
-
       set({ offers: result, isLoading: false }); // ✅ store in correct key
     } catch (err) {
       set({ error: err.message || 'Unknown error', isLoading: false });

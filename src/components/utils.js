@@ -1,5 +1,5 @@
 
-export const apiUrl =  "http://31.97.150.58:8000"; //"http://localhost:8000"; //
+export const apiUrl =  "http://localhost:8000"; //"http://31.97.150.58:8000";
 
 export const toPeriod=(totalSeconds)=> {
   const days = Math.floor(totalSeconds / (24 * 3600)); // 1 day = 86400 seconds
@@ -321,7 +321,6 @@ export const getData=async(url, bypasstoken=false)=>
     }
     accessToken = result.accessToken;
   }
-  
   try {
     const response = await fetch(apiUrl+url, {
       method: 'GET',
@@ -330,8 +329,14 @@ export const getData=async(url, bypasstoken=false)=>
         'accessToken':accessToken
       },
     });
-    const result = await response.json();
-    return result;
+    console.log(response);
+    try {
+      return await response.json();
+    }
+    catch(error) {
+      alert(JSON.stringify(url));
+      return {success:false, message:"Wrong JSON"};
+    }
   } 
   catch (error) 
   {
