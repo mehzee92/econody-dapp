@@ -109,7 +109,11 @@ export default function MarketplaceUI()
             style={{ width: 270 }}
             onClick={() => router.push(`/property-details?asset_id=${item?.id}`)}
           >
-            <img src={apiUrl+"/uploads/"+item?.thumbnail} alt={item?.title} width={300} height={200} className="w-full m-auto h-40 rounded-xl rounded-b-none object-cover" />
+            <img src={apiUrl+"/uploads/"+item?.thumbnail} 
+                alt={item?.title} 
+                width={300} 
+                height={200} 
+                className="w-full m-auto h-40 rounded-xl rounded-b-none object-cover" />
             <div className="p-4 flex flex-col justify-between h-full">
               <h3 className="text-md font-semibold text-gray-900">{item?.asset_name}</h3>
               <p className="text-xs h-8 text-gray-600">{item?.title.slice(0, 72)}</p>
