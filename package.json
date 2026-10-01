@@ -14,9 +14,9 @@
     "outputPath": "dist"
   },
   "scripts": {
-    "dev": "cross-env PORT=3000 next dev",
-    "build": "next build",
-    "start": "cross-env PORT=3000 next start",
+    "dev": "node api.js && cross-env PORT=3000 next dev",
+    "build": "node api.js && next build",
+    "start": "node api.js && cross-env PORT=3000 next start",
     "lint": "next lint"
   },
   "dependencies": {
